@@ -15,7 +15,9 @@ function App() {
     setWeather(null);
     try {
       const r = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(targetCity)}&units=${units}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+          targetCity
+        )}&units=${units}&appid=${API_KEY}`
       );
       if (!r.ok) throw new Error("City not found");
       setWeather(await r.json());
@@ -114,9 +116,24 @@ function App() {
           {/* Messages/Spinner */}
           {loading && (
             <div className="flex justify-center py-8 animate-pulse">
-              <svg className="animate-spin w-10 h-10 text-sky-400" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+              <svg
+                className="animate-spin w-10 h-10 text-sky-400"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v8H4z"
+                />
               </svg>
             </div>
           )}
@@ -189,7 +206,9 @@ function App() {
                 />
                 <WeatherStat
                   label="Timezone"
-                  value={`GMT${weather.timezone > 0 ? "+" : ""}${weather.timezone / 3600}`}
+                  value={`GMT${weather.timezone > 0 ? "+" : ""}${
+                    weather.timezone / 3600
+                  }`}
                   colSpan={2}
                 />
               </div>
@@ -201,7 +220,9 @@ function App() {
       <aside className="flex-1 min-w-0 flex items-center justify-center p-2">
         <div className="w-full h-full min-h-[280px] rounded-3xl bg-gradient-to-br from-sky-300/70 to-blue-100/80 shadow-xl border border-sky-200 backdrop-blur-xl flex flex-col items-center justify-center p-8">
           <div className="flex items-center justify-center mb-6">
-            <span className="text-[4rem] md:text-[7rem] animate-bounce">☀️</span>
+            <span className="text-[4rem] md:text-[7rem] animate-bounce">
+              ☀️
+            </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-2 text-center">
             Plan Your Day
